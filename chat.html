@@ -1,47 +1,100 @@
 <!doctype html>
 <html lang="pt-BR">
-<head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Contactar a Leano — Solicitar Orçamento</title>
-<link rel="stylesheet" href="css/style.css">
-</head>
+<head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Chat / Inbox — Leano</title><link rel="stylesheet" href="styles.css"><script src="script.js" defer></script></head>
 <body>
-  <!-- header/menu copy -->
-  <main class="container" style="padding-top:28px">
-    <h1>Contacte-nos</h1>
-    <div style="display:grid;grid-template-columns:1fr 360px;gap:18px">
-      <div class="form-card">
-        <form id="contactForm" onsubmit="(async function(e){e.preventDefault(); await sendContactForm(document.getElementById('contactForm'))})(event)">
-          <!-- IMPORTANT: se for usar Web3Forms, regista-te e substitui AQUI com a tua access_key -->
-          <input type="hidden" name="access_key" value=""> 
-          <label>Nome</label><input type="text" name="nome" required>
-          <label>Email</label><input type="email" name="email" required>
-          <label>És:</label>
-          <select name="tipo">
-            <option value="empresa">Empresa</option>
-            <option value="freelancer">Freelancer</option>
-          </select>
-          <label>Serviço</label>
-          <input type="text" name="servico" id="servicoField" placeholder="Ex: Criação de site">
-          <label>Mensagem</label>
-          <textarea name="mensagem" required></textarea>
+<header>
+  <div class="logo">Leano Worldwide</div>
+  <nav>
+    <ul id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Serviços</a></li>
+      <li><a href="quote.html">Pedir Orçamento</a></li>
+      <li><a href="work-with-us.html">Trabalha Connosco</a></li>
+    </ul>
+  </nav>
+  <div class="menu-btn" onclick="toggleMenu()">☰</div>
+</header>
 
-          <div style="display:flex;gap:8px;margin-top:10px">
-            <button class="btn btn-primary" type="submit">Enviar Mensagem</button>
-            <button class="btn btn-ghost" type="reset">Limpar</button>
-          </div>
-        </form>
-        <p style="color:#6b7280;margin-top:10px">Ao enviar, a mensagem será entregue à equipa Leano. Em produção, a mensagem fica no painel (inbox) e o cliente recebe confirmação por e-mail.</p>
+<main>
+  <section class="services" style="padding-top:40px;">
+    <div class="wrap">
+      <h1>Inbox — Mensagens</h1>
+      <p style="color:#444;">Área de mensagens (teste). As mensagens ficam guardadas localmente no navegador. No backend, substituiremos por Xano / Supabase.</p>
+
+      <div style="display:flex;gap:20px;flex-wrap:wrap;">
+        <div style="flex:1;min-width:320px;">
+          <form id="msgForm" class="card" style="padding:12px;">
+            <label>Nome / Empresa<br><input id="sender" style="width:100%;padding:10px;border-radius:8px;border:1px solid #eee" required></label><br><br>
+            <label>Tipo<br>
+              <select id="type" style="width:100%;padding:10px;border-radius:8px;border:1px solid #eee">
+                <option value="empresa">Empresa</option>
+                <option value="freelancer">Freelancer</option>
+                <option value="agencia">Agência</option>
+              </select>
+            </label><br><br>
+            <label>Mensagem<br><textarea id="msg" rows="6" style="width:100%;padding:10px;border-radius:8px;border:1px solid #eee" required></textarea></label><br><br>
+            <div style="display:flex;gap:12px;">
+              <button class="btn-primary" type="submit" style="border:none;cursor:pointer">Enviar</button>
+              <button type="button" id="clearBtn" class="btn" style="background:#ddd;color:#111">Limpar Demo</button>
+            </div>
+          </form>
+        </div>
+
+        <div style="flex:1;min-width:320px;">
+          <div id="inboxList" class="card" style="padding:12px;max-height:420px;overflow:auto"></div>
+        </div>
       </div>
-
-      <aside class="form-card">
-        <h3>Suporte Leano</h3>
-        <p>Preferes que contactemos por e-mail? Envia para: <a href="mailto:alexandremalungo17@gmail.com">alexandremalungo17@gmail.com</a></p>
-        <p>Horário: 09:00–18:00 UTC</p>
-      </aside>
     </div>
-  </main>
+  </section>
+</main>
 
-<script src="js/main.js"></script>
+<footer>© 2025 Leano Worldwide</footer>
+
+<script>
+const FOR_KEY = 'leano_messages_v1';
+const form = document.getElementById('msgForm');
+const inboxList = document.getElementById('inboxList');
+const clearBtn = document.getElementById('clearBtn');
+
+function loadMsgs(){
+  return JSON.parse(localStorage.getItem(FOR_KEY) || '[]');
+}
+function saveMsgs(arr){ localStorage.setItem(FOR_KEY, JSON.stringify(arr)); }
+function render(){
+  const arr = loadMsgs();
+  if(!arr.length){ inboxList.innerHTML = '<div style="color:#666">Nenhuma mensagem — envia uma pela esquerda.</div>'; return; }
+  inboxList.innerHTML = arr.map(m=>{
+    return `<div style="border-bottom:1px solid #f0f0f0;padding:10px 6px">
+      <strong>${m.sender}</strong> <small style="color:#666">(${m.type})</small><br>
+      <span style="color:#333">${m.text}</span><div style="color:#999;font-size:12px;margin-top:6px">${new Date(m.date).toLocaleString()}</div>
+    </div>`;
+  }).join('');
+}
+
+form.addEventListener('submit', function(e){
+  e.preventDefault();
+  const sender = document.getElementById('sender').value.trim();
+  const type = document.getElementById('type').value;
+  const text = document.getElementById('msg').value.trim();
+  if(!sender || !text) return alert('Preencher nome e mensagem.');
+  const arr = loadMsgs();
+  arr.unshift({sender,type,text,date:new Date().toISOString()});
+  saveMsgs(arr);
+  render();
+  this.reset();
+  // enviar notificação por mailto (opcional)
+  const subj = encodeURIComponent('Nova mensagem — ' + sender);
+  const body = encodeURIComponent(`Novo contacto:\nNome: ${sender}\nTipo: ${type}\n\nMensagem:\n${text}`);
+  // abrir mail client (comentado para não forçar): window.location.href = `mailto:alexandremalungo17@gmail.com?subject=${subj}&body=${body}`;
+});
+
+clearBtn.addEventListener('click', ()=>{
+  if(!confirm('Limpar todas as mensagens demo?')) return;
+  localStorage.removeItem(FOR_KEY);
+  render();
+});
+
+render();
+</script>
 </body>
-</html>
+          </html>

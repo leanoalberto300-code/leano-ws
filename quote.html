@@ -1,64 +1,67 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Pedir Orçamento — Leano Worldwide</title>
-<link rel="stylesheet" href="css/estilo.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Orçamento - LEANO WS</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-
-<header class="site-header">
-  <div class="wrap header-inner">
-    <a class="brand" href="index.html">
-      <div class="logo-mark">L</div><div class="brand-text"><strong>Leano</strong><span>Worldwide</span></div>
-    </a>
-    <nav class="nav-desktop">
-      <a href="index.html">Início</a>
-      <a href="services.html">Serviços</a>
-      <a href="work-with-us.html">Trabalhe Connosco</a>
-      <a href="chat.html" class="btn-primary">Chat</a>
+  <header>
+    <nav class="navbar">
+      <div class="logo">LEANO WS</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Início</a></li>
+        <li><a href="servicos.html">Serviços</a></li>
+        <li><a href="portfolio.html">Portfólio</a></li>
+        <li><a href="orcamento.html" class="active">Orçamento</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
     </nav>
-    <button id="menuToggle" class="menu-toggle">☰</button>
-  </div>
-</header>
+  </header>
 
-<aside id="mobileMenu" class="mobile-menu" aria-hidden="true">
-  <nav>
-    <a href="index.html">Início</a>
-    <a href="services.html">Serviços</a>
-    <a href="work-with-us.html">Trabalhe Connosco</a>
-    <a href="chat.html">Chat</a>
-  </nav>
-</aside>
+  <section class="orcamento-header">
+    <h1>Solicitar Orçamento</h1>
+    <p>Preencha o formulário abaixo e receba seu orçamento em até 24 horas.</p>
+  </section>
 
-<main class="wrap">
-  <h1>Pedir Orçamento</h1>
-  <p class="lead">Preencha os detalhes do seu pedido. Responderemos em até 24h úteis.</p>
+  <section class="orcamento-container">
+    <form action="#" method="post" class="form-box">
+      <div class="form-group">
+        <label for="nome">Seu Nome</label>
+        <input type="text" id="nome" name="nome" required />
+      </div>
 
-  <form onsubmit="return simulateSubmit(this)">
-    <label>Nome completo</label>
-    <input type="text" required>
+      <div class="form-group">
+        <label for="email">Seu E-mail</label>
+        <input type="email" id="email" name="email" required />
+      </div>
 
-    <label>E-mail</label>
-    <input type="email" required>
+      <div class="form-group">
+        <label for="servico">Tipo de Serviço</label>
+        <select id="servico" name="servico" required>
+          <option value="">Selecione…</option>
+          <option value="website">Criação de Website</option>
+          <option value="loja">Loja Virtual</option>
+          <option value="branding">Branding & Identidade Visual</option>
+          <option value="social">Gestão de Redes Sociais</option>
+          <option value="anuncios">Gestão de Anúncios</option>
+          <option value="outros">Outro (especificar abaixo)</option>
+        </select>
+      </div>
 
-    <label>Serviço desejado</label>
-    <select required>
-      <option value="">Selecione</option>
-      <option>Criação de Website</option>
-      <option>Marketing & Publicidade</option>
-      <option>Serviços Globais com Freelancers</option>
-      <option>Reservas de Hotéis</option>
-    </select>
+      <div class="form-group">
+        <label for="detalhes">Detalhes do Projeto</label>
+        <textarea id="detalhes" name="detalhes" rows="5" required></textarea>
+      </div>
 
-    <label>Descreva o serviço</label>
-    <textarea rows="6" required></textarea>
+      <button type="submit" class="btn-enviar">Enviar Solicitação</button>
+    </form>
+  </section>
 
-    <button class="btn-primary" type="submit">Enviar Pedido</button>
-  </form>
-</main>
-
-<script src="js/script.js"></script>
+  <footer>
+    <p>© 2025 LEANO WS — Todos os direitos reservados.</p>
+  </footer>
 </body>
-</html>
+          </html>

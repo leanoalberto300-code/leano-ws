@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Contactar a Leano — Solicitar Orçamento</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- header/menu copy -->
+  <main class="container" style="padding-top:28px">
+    <h1>Contacte-nos</h1>
+    <div style="display:grid;grid-template-columns:1fr 360px;gap:18px">
+      <div class="form-card">
+        <form id="contactForm" onsubmit="(async function(e){e.preventDefault(); await sendContactForm(document.getElementById('contactForm'))})(event)">
+          <!-- IMPORTANT: se for usar Web3Forms, regista-te e substitui AQUI com a tua access_key -->
+          <input type="hidden" name="access_key" value=""> 
+          <label>Nome</label><input type="text" name="nome" required>
+          <label>Email</label><input type="email" name="email" required>
+          <label>És:</label>
+          <select name="tipo">
+            <option value="empresa">Empresa</option>
+            <option value="freelancer">Freelancer</option>
+          </select>
+          <label>Serviço</label>
+          <input type="text" name="servico" id="servicoField" placeholder="Ex: Criação de site">
+          <label>Mensagem</label>
+          <textarea name="mensagem" required></textarea>
+
+          <div style="display:flex;gap:8px;margin-top:10px">
+            <button class="btn btn-primary" type="submit">Enviar Mensagem</button>
+            <button class="btn btn-ghost" type="reset">Limpar</button>
+          </div>
+        </form>
+        <p style="color:#6b7280;margin-top:10px">Ao enviar, a mensagem será entregue à equipa Leano. Em produção, a mensagem fica no painel (inbox) e o cliente recebe confirmação por e-mail.</p>
+      </div>
+
+      <aside class="form-card">
+        <h3>Suporte Leano</h3>
+        <p>Preferes que contactemos por e-mail? Envia para: <a href="mailto:alexandremalungo17@gmail.com">alexandremalungo17@gmail.com</a></p>
+        <p>Horário: 09:00–18:00 UTC</p>
+      </aside>
+    </div>
+  </main>
+
+<script src="js/main.js"></script>
+</body>
+</html>

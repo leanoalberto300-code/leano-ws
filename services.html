@@ -1,158 +1,104 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Serviços — Leano Worldwide</title>
-  <link rel="stylesheet" href="styles.css">
-  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="css/estilo.css">
 </head>
 <body>
-<header>
-  <div class="logo">Leano Worldwide</div>
-  <nav>
-    <ul id="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="services.html">Serviços</a></li>
-      <li><a href="quote.html">Pedir Orçamento</a></li>
-      <li><a href="work-with-us.html">Trabalha Connosco</a></li>
-      <li><a href="chat.html">Chat</a></li>
-    </ul>
-  </nav>
-  <div class="menu-btn" onclick="toggleMenu()">☰</div>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html">
+      <div class="logo-mark">L</div>
+      <div class="brand-text">
+        <strong>Leano</strong><span>Worldwide</span>
+      </div>
+    </a>
+
+    <nav class="nav-desktop">
+      <a href="index.html">Início</a>
+      <a href="services.html">Serviços</a>
+      <a href="quote.html" class="btn-outline">Pedir Orçamento</a>
+      <a href="work-with-us.html">Trabalhe Connosco</a>
+      <a href="chat.html" class="btn-primary">Chat</a>
+    </nav>
+
+    <button id="menuToggle" class="menu-toggle">
+      <svg width="28" height="28" viewBox="0 0 24 24">
+        <path d="M3 6h18M3 12h18M3 18h18" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
 </header>
 
-<main>
-  <section class="services" style="padding-top:40px;">
-    <div class="wrap">
-      <h1>Todos os Serviços</h1>
-      <p style="margin:12px 0 28px;color:#444;">A Leano Worldwide oferece um portefólio completo de serviços empresariais — abaixo estão as categorias e serviços mais procurados.</p>
+<aside id="mobileMenu" class="mobile-menu" aria-hidden="true">
+  <nav>
+    <a href="index.html">Início</a>
+    <a href="services.html">Serviços</a>
+    <a href="quote.html">Pedir Orçamento</a>
+    <a href="work-with-us.html">Trabalhe Connosco</a>
+    <a href="chat.html">Chat</a>
+  </nav>
+</aside>
 
-      <div class="grid services-list">
+<main class="wrap">
+  <h1>Todos os Serviços da Leano Worldwide</h1>
+  <p class="lead">Prestamos serviços globais com profissionais especializados e gestão completa pela agência.</p>
 
-        <!-- Tecnologia -->
-        <div class="card">
-          <img src="images/websites.jpg" alt="Desenvolvimento Web">
-          <div class="card-content">
-            <h3>Desenvolvimento Web & Plataformas</h3>
-            <p>Sites institucionais, lojas online, portais corporativos e integrações API. Otimização SEO e compatibilidade mobile.</p>
-            <a class="btn" href="service-details.html?service=desenvolvimento-web">Ver / Solicitar</a>
-          </div>
-        </div>
+  <div class="grid services-grid">
 
-        <div class="card">
-          <img src="images/apps.jpg" alt="Apps">
-          <div class="card-content">
-            <h3>Desenvolvimento de Aplicações (Apps)</h3>
-            <p>Apps iOS/Android e web apps com backends escaláveis, autenticação e integração com serviços de pagamento e APIs.</p>
-            <a class="btn" href="service-details.html?service=apps">Ver / Solicitar</a>
-          </div>
-        </div>
+    <!-- Serviço 1 -->
+    <article class="card">
+      <img src="servico-websites.jpg" alt="Criação de Websites">
+      <h3>Criação de Websites</h3>
+      <p>Websites modernos, rápidos e profissionais para empresas e marcas.</p>
+      <a href="service-details.html?slug=websites" class="btn-outline">Ver Detalhes</a>
+    </article>
 
-        <div class="card">
-          <img src="images/security.jpg" alt="Segurança">
-          <div class="card-content">
-            <h3>Segurança & Infraestrutura</h3>
-            <p>Auditoria de segurança, configuração de servidores cloud (AWS/Azure/GCP), backups e recuperação de desastre.</p>
-            <a class="btn" href="service-details.html?service=seguranca">Ver / Solicitar</a>
-          </div>
-        </div>
+    <!-- Serviço 2 -->
+    <article class="card">
+      <img src="servico-marketing.jpg" alt="Marketing Digital">
+      <h3>Marketing & Publicidade</h3>
+      <p>Campanhas digitais, SEO, social ads e crescimento de marca.</p>
+      <a href="service-details.html?slug=marketing" class="btn-outline">Ver Detalhes</a>
+    </article>
 
-        <!-- Marketing -->
-        <div class="card">
-          <img src="images/marketing.jpg" alt="Marketing">
-          <div class="card-content">
-            <h3>Marketing Digital & Publicidade</h3>
-            <p>Gestão de campanhas pagas, SEO, criação de conteúdo, estratégia de redes sociais e growth marketing.</p>
-            <a class="btn" href="service-details.html?service=marketing-digital">Ver / Solicitar</a>
-          </div>
-        </div>
+    <!-- Serviço 3 -->
+    <article class="card">
+      <img src="servico-freelancers.jpg" alt="Serviços Globais com Freelancers">
+      <h3>Serviços Globais (Freelancers)</h3>
+      <p>Executamos projetos com talentos internacionais supervisionados.</p>
+      <a href="service-details.html?slug=freelancers" class="btn-outline">Ver Detalhes</a>
+    </article>
 
-        <div class="card">
-          <img src="images/branding.jpg" alt="Branding">
-          <div class="card-content">
-            <h3>Branding & Identidade Visual</h3>
-            <p>Criação de logótipos, guias visuais, design de marca e materiais corporativos para posicionamento global.</p>
-            <a class="btn" href="service-details.html?service=branding">Ver / Solicitar</a>
-          </div>
-        </div>
-
-        <!-- Operações e RH -->
-        <div class="card">
-          <img src="images/consultoria.jpg" alt="Consultoria">
-          <div class="card-content">
-            <h3>Consultoria Empresarial</h3>
-            <p>Estratégia, processos operacionais, estrutura organizacional e planos de crescimento para empresas.</p>
-            <a class="btn" href="service-details.html?service=consultoria">Ver / Solicitar</a>
-          </div>
-        </div>
-
-        <div class="card">
-          <img src="images/rh.jpg" alt="RH">
-          <div class="card-content">
-            <h3>Recursos Humanos & Recrutamento</h3>
-            <p>Recrutamento, formação, avaliação de desempenho e outsourcing de RH.</p>
-            <a class="btn" href="service-details.html?service=rh">Ver / Solicitar</a>
-          </div>
-        </div>
-
-        <!-- Hotelaria & Viagens -->
-        <div class="card">
-          <img src="images/hoteis.jpg" alt="Reservas de Hotéis">
-          <div class="card-content">
-            <h3>Reservas de Hotéis & Gestão de Viagens</h3>
-            <p>Reservas corporativas, tarifas negociadas, itinerários e assistência 24/7 para viagens de negócios.</p>
-            <a class="btn" href="service-details.html?service=reservas-hoteis">Ver / Solicitar</a>
-          </div>
-        </div>
-
-        <!-- Financeiro -->
-        <div class="card">
-          <img src="images/finance.jpg" alt="Financeiro">
-          <div class="card-content">
-            <h3>Serviços Financeiros & Contabilidade</h3>
-            <p>Gestão financeira, contabilidade, folha de pagamentos e planeamento fiscal.</p>
-            <a class="btn" href="service-details.html?service=financeiro">Ver / Solicitar</a>
-          </div>
-        </div>
-
-        <!-- Criativo -->
-        <div class="card">
-          <img src="images/video.jpg" alt="Produção Audiovisual">
-          <div class="card-content">
-            <h3>Produção Audiovisual & Fotografia</h3>
-            <p>Vídeo corporativo, motion design, fotografia de produto e edição profissional para campanhas.</p>
-            <a class="btn" href="service-details.html?service=producaovisual">Ver / Solicitar</a>
-          </div>
-        </div>
-
-        <!-- Logística -->
-        <div class="card">
-          <img src="images/logistics.jpg" alt="Logística">
-          <div class="card-content">
-            <h3>Logística & Supply Chain</h3>
-            <p>Gestão de estoque, roteirização, despacho aduaneiro e soluções para comércio internacional.</p>
-            <a class="btn" href="service-details.html?service=logistica">Ver / Solicitar</a>
-          </div>
-        </div>
-
-        <!-- Freelancers -->
-        <div class="card">
-          <img src="images/freelancers.jpg" alt="Freelancers">
-          <div class="card-content">
-            <h3>Rede de Freelancers Verificados</h3>
-            <p>Acesso a profissionais de várias áreas — aprovados e geridos pela Leano para garantir qualidade.</p>
-            <a class="btn" href="service-details.html?service=freelancers">Ver / Solicitar</a>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
+    <!-- Serviço 4 -->
+    <article class="card">
+      <img src="servico-hoteis.jpg" alt="Reservas de Hotéis">
+      <h3>Reservas de Hotéis</h3>
+      <p>Reservas corporativas, eventos e viagens empresariais.</p>
+      <a href="service-details.html?slug=hotels" class="btn-outline">Ver Detalhes</a>
+    </article>
+  </div>
 </main>
 
-<footer>
-  © 2025 Leano Worldwide — Soluções digitais que impulsionam empresas.
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div>
+      <strong>Leano Worldwide</strong><br>
+      Soluções Empresariais & Tecnológicas
+    </div>
+    <nav class="footer-nav">
+      <a href="services.html">Serviços</a>
+      <a href="privacy.html">Privacidade</a>
+      <a href="terms.html">Termos</a>
+    </nav>
+    <div>
+      © 2025 Leano Worldwide  
+    </div>
+  </div>
 </footer>
+
+<script src="js/script.js"></script>
 </body>
-            </html>
+        </html>

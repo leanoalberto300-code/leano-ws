@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Inbox — Leano (Admin)</title>
+<link rel="stylesheet" href="css/style.css"></head>
+<body>
+  <main class="container" style="padding:28px 0">
+    <h1>Caixa de Mensagens — Demo</h1>
+    <p>Este painel mostra as mensagens guardadas localmente (apenas demo). Para ter inbox real, ligaremos a um backend (Xano / Supabase / Netlify Function).</p>
+
+    <div class="form-card" style="margin-bottom:18px">
+      <button class="btn btn-primary" onclick="loadInbox()">Carregar mensagens demo</button>
+      <button class="btn btn-ghost" onclick="clearInbox()">Limpar demo</button>
+    </div>
+
+    <div id="inboxList"></div>
+
+    <hr>
+    <h3>Como ter um inbox real (passos rápidos)</h3>
+    <ol>
+      <li>Registar conta em <strong>Xano</strong> ou <strong>Supabase</strong>.</li>
+      <li>Criar tabela `messages` com campos: id, nome, email, tipo, servico, mensagem, created_at.</li>
+      <li>Criar endpoint POST `/api/messages` que recebe os formulários do site e grava na DB.</li>
+      <li>Criar endpoint GET `/api/messages` que retorna as mensagens (autenticado para admin).</li>
+      <li>Substituir fetch() no admin para buscar esse endpoint e mostrar as mensagens.</li>
+    </ol>
+
+    <pre style="background:#f3f4f6;padding:10px;border-radius:8px">
+// Example: fetch messages (admin)
+/*
+fetch('https://your-xano-endpoint.com/api/messages', {headers: {Authorization: 'Bearer YOUR_TOKEN'}})
+  .then(r=>r.json()).then(data=>{ ... })
+*/
+    </pre>
+  </main>
+
+<script>
+function loadInbox(){
+  const arr = JSON.parse(localStorage.getItem('leano_inbox_demo')||'[]');
+  const el = document.getElementById('inboxList');
+  if(!arr.length){ el.innerHTML='<div class="form-card">Nenhuma mensagem demo. Envia um contato via chat.html e volta aqui.</div>'; return; }
+  el.innerHTML = arr.map(m=>`<div class="form-card" style="margin-bottom:10px">
+    <strong>${m.nome}</strong> <small style="color:#6b7280">(${m.tipo})</small><br>
+    <small style="color:#6b7280">${new Date(m.id).toLocaleString()}</small>
+    <p>${m.mensagem}</p>
+    <div><a href="mailto:${m.email}">Responder</a></div>
+  </div>`).join('');
+}
+function clearInbox(){ localStorage.removeItem('leano_inbox_demo'); loadInbox(); }
+</script>
+</body>
+</html>

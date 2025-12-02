@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Leano Worldwide Solutions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Header -->
+<header class="header">
+  <div class="wrap container">
+    <div class="brand">
+      <div class="mark">L</div>
+      <div class="title">Leano Worldwide</div>
+    </div>
+
+    <button class="menu-btn" aria-label="Abrir menu">☰</button>
+  </div>
+</header>
+
+<!-- Menu Drawer -->
+<nav id="menuDrawer" class="menu-drawer" aria-hidden="true">
+  <div class="container">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <div style="display:flex;gap:12px;align-items:center">
+        <div class="mark">L</div>
+        <div>
+          <strong>Leano Worldwide</strong><br><small style="color:#6b7280">Agência global de serviços</small>
+        </div>
+      </div>
+      <button class="menu-btn" onclick="document.getElementById('menuDrawer').classList.remove('open')">✕</button>
+    </div>
+
+    <div class="menu-grid" style="margin-top:20px">
+      <div>
+        <h4>Menu</h4>
+        <ul style="list-style:none;padding:0;color:#334155;line-height:2">
+          <li><a href="#" class="menu-close" onclick="smoothTo('#home')">Início</a></li>
+          <li><a href="#" class="menu-close" onclick="smoothTo('#services')">Serviços</a></li>
+          <li><a href="servicos.html" class="menu-close">Ver todos os serviços</a></li>
+          <li><a href="chat.html" class="menu-close">Empresas / Solicitar Orçamento</a></li>
+          <li><a href="trabalhe.html" class="menu-close">Trabalhe Connosco</a></li>
+          <li><a href="inbox.html" class="menu-close">Suporte / Inbox</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Soluções</h4>
+        <ul style="list-style:none;padding:0;color:#334155;line-height:2">
+          <li>Desenvolvimento Web</li>
+          <li>Marketing Digital</li>
+          <li>Branding & Design</li>
+          <li>Reservas & Hotelaria</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Empresa</h4>
+        <ul style="list-style:none;padding:0;color:#334155;line-height:2">
+          <li><a href="sobre.html" class="menu-close">Sobre Nós</a></li>
+          <li><a href="contato.html" class="menu-close">Contacto</a></li>
+          <li><a href="#" class="menu-close">Política & Termos</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="margin-top:26px;display:flex;gap:12px;flex-wrap:wrap">
+      <a class="btn btn-primary" href="chat.html">Solicitar Serviço</a>
+      <a class="btn btn-ghost" href="trabalhe.html">Trabalhe Connosco</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Main / Hero -->
+<main class="container" id="home">
+  <section class="hero" aria-label="Hero">
+    <div class="card">
+      <div class="hero-left">
+        <div class="kicker">Soluções empresariais</div>
+        <h1>Serviços globais para empresas e profissionais</h1>
+        <p>Conectamos talento e tecnologia para construir produtos, marketing e operações que geram resultados reais.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="chat.html">Solicitar Serviço</a>
+          <a class="btn btn-ghost" href="servicos.html">Ver todos os serviços</a>
+        </div>
+      </div>
+
+      <div style="flex-basis:420px;">
+        <div style="border-radius:12px;overflow:hidden">
+          <img src="imagens/banner-principal.jpg" alt="Banner principal" style="width:100%;height:300px;object-fit:cover">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services preview -->
+  <section id="services" class="section">
+    <h2>Nossos Serviços Principais</h2>
+    <div class="services-grid">
+      <article class="card-service">
+        <img src="imagens/servico-websites.jpg" alt="Criação de sites">
+        <h3>Criação de Sites & E-commerce</h3>
+        <p>Desenvolvemos lojas e sites responsivos, com foco em conversão e SEO.</p>
+        <div style="margin-top:12px"><a class="btn btn-primary" href="servicos/criacao-sites.html">Ver mais / Pedir orçamento</a></div>
+      </article>
+
+      <article class="card-service">
+        <img src="imagens/servico-marketing.jpg" alt="Marketing">
+        <h3>Publicidade & Marketing</h3>
+        <p>Campanhas pagas, estratégias de conteúdo e gestão de redes sociais.</p>
+        <div style="margin-top:12px"><a class="btn btn-primary" href="servicos/marketing-digital.html">Ver mais / Pedir orçamento</a></div>
+      </article>
+
+      <article class="card-service">
+        <img src="imagens/servico-freelancers.jpg" alt="Freelancers">
+        <h3>Fornecimento de Profissionais</h3>
+        <p>Profissionais verificados alocados aos projetos sob gestão da Leano.</p>
+        <div style="margin-top:12px"><a class="btn btn-primary" href="servicos/freelancers.html">Ver mais / Pedir orçamento</a></div>
+      </article>
+
+      <article class="card-service">
+        <img src="imagens/servico-hoteis.jpg" alt="Hotéis">
+        <h3>Reservas de Hotéis & Viagens</h3>
+        <p>Gestão de reservas, tarifas negociadas e suporte multilíngue.</p>
+        <div style="margin-top:12px"><a class="btn btn-primary" href="servicos/hotelaria.html">Ver mais / Pedir orçamento</a></div>
+      </article>
+    </div>
+
+    <div style="text-align:center;margin-top:18px">
+      <a class="btn btn-ghost" href="servicos.html">Ver todos os serviços</a>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="section">
+    <h2>Como Funciona</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:12px">
+      <div class="form-card"><strong>1. Pedido</strong><p class="small muted">Cliente envia briefing.</p></div>
+      <div class="form-card"><strong>2. Seleção</strong><p class="small muted">Selecionamos profissional interno.</p></div>
+      <div class="form-card"><strong>3. Entrega</strong><p class="small muted">Entrega por marcos e pagamento seguro.</p></div>
+    </div>
+  </section>
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container inner">
+    <div>
+      <div style="display:flex;gap:12px;align-items:center">
+        <div class="mark">L</div>
+        <div>
+          <strong style="color:#fff">Leano Worldwide</strong><br>
+          <small style="color:#9aa4bd">Soluções empresariais globais</small>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align:right">
+      <div style="margin-bottom:8px"><a href="trabalhe.html">Trabalhe Connosco</a> • <a href="chat.html">Pedir Orçamento</a></div>
+      <div class="copyright" style="color:#9aa4bd">© <span id="year"></span> Leano Worldwide — Todos os direitos reservados</div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+</body>
+  </html>

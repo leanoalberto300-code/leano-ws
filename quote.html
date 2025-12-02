@@ -1,79 +1,64 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Pedir Orçamento — Leano Worldwide</title>
-  <link rel="stylesheet" href="styles.css">
-  <script src="script.js" defer></script>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Pedir Orçamento — Leano Worldwide</title>
+<link rel="stylesheet" href="css/estilo.css">
 </head>
 <body>
-<header>
-  <div class="logo">Leano Worldwide</div>
-  <nav>
-    <ul id="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="services.html">Serviços</a></li>
-      <li><a href="quote.html">Pedir Orçamento</a></li>
-      <li><a href="work-with-us.html">Trabalha Connosco</a></li>
-    </ul>
-  </nav>
-  <div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html">
+      <div class="logo-mark">L</div><div class="brand-text"><strong>Leano</strong><span>Worldwide</span></div>
+    </a>
+    <nav class="nav-desktop">
+      <a href="index.html">Início</a>
+      <a href="services.html">Serviços</a>
+      <a href="work-with-us.html">Trabalhe Connosco</a>
+      <a href="chat.html" class="btn-primary">Chat</a>
+    </nav>
+    <button id="menuToggle" class="menu-toggle">☰</button>
+  </div>
 </header>
 
-<main>
-  <section class="services" style="padding-top:40px;">
-    <div class="wrap">
-      <h1>Pedir Orçamento</h1>
-      <p style="color:#444;">Preencha o formulário abaixo com o máximo de detalhes possível. Podemos marcar uma reunião após a análise.</p>
+<aside id="mobileMenu" class="mobile-menu" aria-hidden="true">
+  <nav>
+    <a href="index.html">Início</a>
+    <a href="services.html">Serviços</a>
+    <a href="work-with-us.html">Trabalhe Connosco</a>
+    <a href="chat.html">Chat</a>
+  </nav>
+</aside>
 
-      <form id="quoteForm" class="card" style="padding:18px;margin-top:18px;">
-        <label>Nome completo<br><input name="name" required style="width:100%;padding:10px;border-radius:8px;border:1px solid #eee"></label><br><br>
-        <label>Email<br><input name="email" type="email" required style="width:100%;padding:10px;border-radius:8px;border:1px solid #eee"></label><br><br>
-        <label>Empresa (opcional)<br><input name="company" style="width:100%;padding:10px;border-radius:8px;border:1px solid #eee"></label><br><br>
-        <label>Serviço desejado<br>
-          <select name="service" style="width:100%;padding:10px;border-radius:8px;border:1px solid #eee">
-            <option>Criação de Websites</option>
-            <option>Marketing Digital</option>
-            <option>Reservas de Hotéis</option>
-            <option>Serviços com Freelancers</option>
-            <option>Outro</option>
-          </select>
-        </label><br><br>
+<main class="wrap">
+  <h1>Pedir Orçamento</h1>
+  <p class="lead">Preencha os detalhes do seu pedido. Responderemos em até 24h úteis.</p>
 
-        <label>Descrição do projecto / requisitos<br>
-          <textarea name="message" rows="6" style="width:100%;padding:10px;border-radius:8px;border:1px solid #eee"></textarea>
-        </label><br><br>
+  <form onsubmit="return simulateSubmit(this)">
+    <label>Nome completo</label>
+    <input type="text" required>
 
-        <div style="display:flex;gap:12px;flex-wrap:wrap;">
-          <button type="submit" class="btn-primary" style="border:none;cursor:pointer">Enviar Pedido</button>
-          <a href="index.html" class="btn" style="background:#ddd;color:#111;text-decoration:none;padding:10px 14px;border-radius:8px;">Cancelar</a>
-        </div>
-      </form>
+    <label>E-mail</label>
+    <input type="email" required>
 
-    </div>
-  </section>
+    <label>Serviço desejado</label>
+    <select required>
+      <option value="">Selecione</option>
+      <option>Criação de Website</option>
+      <option>Marketing & Publicidade</option>
+      <option>Serviços Globais com Freelancers</option>
+      <option>Reservas de Hotéis</option>
+    </select>
+
+    <label>Descreva o serviço</label>
+    <textarea rows="6" required></textarea>
+
+    <button class="btn-primary" type="submit">Enviar Pedido</button>
+  </form>
 </main>
 
-<footer>© 2025 Leano Worldwide</footer>
-
-<script>
-document.getElementById('quoteForm').addEventListener('submit', function(e){
-  e.preventDefault();
-  const f = new FormData(this);
-  const name = f.get('name'), email = f.get('email'), company = f.get('company'), service = f.get('service'), message = f.get('message');
-  // Save locally
-  const records = JSON.parse(localStorage.getItem('leano_quotes')||'[]');
-  records.unshift({name,email,company,service,message,date:new Date().toISOString()});
-  localStorage.setItem('leano_quotes', JSON.stringify(records));
-
-  // mailto fallback
-  const subject = encodeURIComponent('Pedido de Orçamento — ' + service + ' — ' + name);
-  const body = encodeURIComponent(`Nome: ${name}\nEmail: ${email}\nEmpresa: ${company}\nServiço: ${service}\n\nDescrição:\n${message}`);
-  window.location.href = `mailto:alexandremalungo17@gmail.com?subject=${subject}&body=${body}`;
-
-  alert('Pedido enviado. A resposta será enviada para o seu email. Obrigado!');
-  this.reset();
-});
-</script>
+<script src="js/script.js"></script>
 </body>
-  </html>
+</html>

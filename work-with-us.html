@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Trabalhe Connosco — Leano Worldwide</title><link rel="stylesheet" href="styles.css"><script src="script.js" defer></script></head>
+<body>
+<header>
+  <div class="logo">Leano Worldwide</div>
+  <nav>
+    <ul id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Serviços</a></li>
+      <li><a href="quote.html">Pedir Orçamento</a></li>
+      <li><a href="work-with-us.html">Trabalha Connosco</a></li>
+    </ul>
+  </nav>
+  <div class="menu-btn" onclick="toggleMenu()">☰</div>
+</header>
+
+<main>
+  <section class="services" style="padding-top:40px;">
+    <div class="wrap">
+      <h1>Trabalha Connosco</h1>
+      <p style="color:#444;">Quer fazer parte da nossa rede de profissionais? Envia a tua candidatura com portefólio. Analisamos e contactamos se houver alinhamento.</p>
+
+      <form id="applyForm" class="card" style="padding:18px;margin-top:18px;">
+        <label>Nome completo<br><input name="name" required style="width:100%;padding:10px;border-radius:8px;border:1px solid #eee"></label><br><br>
+        <label>Email<br><input name="email" type="email" required style="width:100%;padding:10px;border-radius:8px;border:1px solid #eee"></label><br><br>
+        <label>Área / Skills<br><input name="skills" placeholder="Ex: frontend, UI/UX, copywriting" style="width:100%;padding:10px;border-radius:8px;border:1px solid #eee"></label><br><br>
+        <label>Link Portfólio / GitHub<br><input name="portfolio" placeholder="https:// " style="width:100%;padding:10px;border-radius:8px;border:1px solid #eee"></label><br><br>
+        <label>Mensagem / Observações<br><textarea name="message" rows="5" style="width:100%;padding:10px;border-radius:8px;border:1px solid #eee"></textarea></label><br><br>
+
+        <div style="display:flex;gap:12px;">
+          <button class="btn-primary" type="submit" style="border:none;cursor:pointer">Enviar Candidatura</button>
+          <a href="index.html" class="btn" style="background:#ddd;color:#111;text-decoration:none;padding:10px;border-radius:8px">Cancelar</a>
+        </div>
+      </form>
+
+      <div style="margin-top:18px;color:#666">
+        <strong>Processo:</strong> Analisamos portfólio; se aprovado, convidamos para onboarding e atribuímos tarefas. O pagamento é por projeto ou por pacote conforme contrato.
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>© 2025 Leano Worldwide</footer>
+
+<script>
+document.getElementById('applyForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const f = new FormData(this);
+  const recs = JSON.parse(localStorage.getItem('leano_candidates')||'[]');
+  recs.unshift({name:f.get('name'), email:f.get('email'), skills:f.get('skills'), portfolio:f.get('portfolio'), message:f.get('message'), date:new Date().toISOString(), status:'pendente'});
+  localStorage.setItem('leano_candidates', JSON.stringify(recs));
+  // send mailto to admin as notification
+  const subject = encodeURIComponent('Nova candidatura Leano — ' + f.get('name'));
+  const body = encodeURIComponent(`Nome: ${f.get('name')}\nEmail: ${f.get('email')}\nSkills: ${f.get('skills')}\nPortfólio: ${f.get('portfolio')}\n\nMensagem:\n${f.get('message')}`);
+  window.location.href = `mailto:alexandremalungo17@gmail.com?subject=${subject}&body=${body}`;
+  alert('Candidatura enviada. Obrigado!');
+  this.reset();
+});
+</script>
+</body>
+</html>

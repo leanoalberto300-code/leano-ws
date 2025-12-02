@@ -1,96 +1,151 @@
-<!DOCTYPE html>
-<html lang="pt">
+<!doctype html>
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Leano Worldwide Solutions</title>
-  <link rel="stylesheet" href="styles.css">
-  <script src="script.js" defer></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Leano Worldwide — Agência Global</title>
+  <link rel="stylesheet" href="css/estilo.css">
+  <meta name="description" content="Leano Worldwide — Agência global de serviços: web, marketing, branding, reservas de hotéis e projetos empresariais.">
 </head>
-
 <body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html">
+        <div class="logo-mark">L</div>
+        <div class="brand-text">
+          <strong>Leano</strong><span>Worldwide</span>
+        </div>
+      </a>
 
-<header>
-  <div class="logo">Leano Worldwide</div>
+      <nav class="nav-desktop">
+        <a href="index.html">Início</a>
+        <a href="services.html">Serviços</a>
+        <a href="quote.html" class="btn-outline">Pedir Orçamento</a>
+        <a href="work-with-us.html">Trabalhe Connosco</a>
+        <a href="chat.html" class="btn-primary">Chat</a>
+      </nav>
 
-  <nav>
-    <ul id="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="services.html">Serviços</a></li>
-      <li><a href="quote.html">Pedir Orçamento</a></li>
-      <li><a href="work-with-us.html">Trabalha Connosco</a></li>
-      <li><a href="chat.html">Chat</a></li>
-    </ul>
-  </nav>
+      <button id="menuToggle" class="menu-toggle" aria-label="Abrir menu">
+        <svg width="28" height="28" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </header>
 
-  <div class="menu-btn" onclick="toggleMenu()">☰</div>
-</header>
+  <!-- mobile menu -->
+  <aside id="mobileMenu" class="mobile-menu" aria-hidden="true">
+    <nav>
+      <a href="index.html">Início</a>
+      <a href="services.html">Serviços</a>
+      <a href="quote.html">Pedir Orçamento</a>
+      <a href="work-with-us.html">Trabalhe Connosco</a>
+      <a href="chat.html">Chat</a>
+    </nav>
+  </aside>
 
-<section class="hero">
-  <div class="hero-text">
-    <h1>Soluções Globais Para Empresas & Pessoas</h1>
-    <p>Prestamos serviços profissionais internacionais com elevada qualidade,
-       eficiência e segurança. Somos uma agência global com especialistas
-       verificados em diversas áreas.</p>
-    <a href="services.html" class="btn-primary">Ver Serviços</a>
-  </div>
+  <main>
+    <section class="hero">
+      <div class="wrap hero-inner">
+        <div class="hero-copy">
+          <h1>Soluções Globais para Empresas &amp; Pessoas</h1>
+          <p>Prestamos serviços profissionais internacionais: desenvolvimento web, marketing, branding, reservas de hotéis corporativas e gestão de projetos — tudo entregue com supervisão da nossa agência.</p>
+          <div class="hero-ctas">
+            <a href="quote.html" class="btn-primary">Solicitar Serviço</a>
+            <a href="services.html" class="btn-outline">Ver Serviços</a>
+          </div>
+        </div>
+        <div class="hero-media">
+          <img src="banner-principal.jpg" alt="Equipe de consultoria reunida" loading="lazy">
+        </div>
+      </div>
+    </section>
 
-  <div class="hero-img">
-    <img src="images/banner.jpg">
-  </div>
-</section>
+    <section class="services-intro wrap">
+      <h2>Serviços Mais Solicitados</h2>
+      <p class="lead">Contratamos especialistas verificados e gerimos cada projeto com qualidade, confidencialidade e entrega por marcos.</p>
 
-<section class="services">
-  <h2>Serviços Mais Solicitados</h2>
+      <div class="grid services-grid">
+        <article class="card">
+          <img src="servico-websites.jpg" alt="Criação de websites" loading="lazy">
+          <h3>Criação de Websites</h3>
+          <p>Sites modernos, rápidos, responsivos e otimizados para conversão.</p>
+          <a href="service-details.html?slug=websites" class="btn-outline">Solicitar Serviço</a>
+        </article>
 
-  <div class="grid">
+        <article class="card">
+          <img src="servico-marketing.jpg" alt="Marketing & Publicidade" loading="lazy">
+          <h3>Marketing &amp; Publicidade</h3>
+          <p>Campanhas, social ads, SEO e branding para aumentar vendas e visibilidade.</p>
+          <a href="service-details.html?slug=marketing" class="btn-outline">Solicitar Serviço</a>
+        </article>
 
-    <div class="card">
-      <img src="images/websites.jpg">
-      <div class="card-content">
-        <h3>Criação de Websites</h3>
-        <p>Sites modernos, rápidos, profissionais e otimizados.</p>
-        <a class="btn" href="service-details.html?service=websites">Solicitar Serviço</a>
+        <article class="card">
+          <img src="servico-freelancers.jpg" alt="Serviços com freelancers" loading="lazy">
+          <h3>Serviços Globais com Freelancers</h3>
+          <p>Alocamos talentos verificados; todos os trabalhos entregues sob a nossa supervisão.</p>
+          <a href="service-details.html?slug=freelancers" class="btn-outline">Solicitar Serviço</a>
+        </article>
+
+        <article class="card">
+          <img src="servico-hoteis.jpg" alt="Reservas de hotéis" loading="lazy">
+          <h3>Reservas de Hotéis</h3>
+          <p>Reservas corporativas com tarifas negociadas e suporte multilíngue.</p>
+          <a href="service-details.html?slug=hotels" class="btn-outline">Solicitar Serviço</a>
+        </article>
+      </div>
+
+      <p class="text-center"><a href="services.html" class="btn-link">Ver Todos os Serviços</a></p>
+    </section>
+
+    <section class="how-it-works wrap">
+      <h2>Como Funciona — Processo Simplificado</h2>
+      <div class="grid steps">
+        <div class="step">
+          <strong>1. Envie seu pedido</strong>
+          <p>Preencha o briefing no formulário de orçamento com os requisitos principais.</p>
+        </div>
+        <div class="step">
+          <strong>2. Seleção e aprovação</strong>
+          <p>Selecionamos o especialista ideal e apresentamos o plano e orçamento.</p>
+        </div>
+        <div class="step">
+          <strong>3. Entrega & Pagamento</strong>
+          <p>Entrega por marcos e pagamento seguro (Stripe / Payoneer / Cartão).</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-strip">
+      <div class="wrap contact-inner">
+        <div>
+          <h3>Precisa de uma proposta personalizada?</h3>
+          <p>Envia os detalhes e nós voltamos com um orçamento completo em 24h úteis.</p>
+        </div>
+        <div>
+          <a href="quote.html" class="btn-primary">Pedir Orçamento</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div>
+        <strong>Leano Worldwide</strong>
+        <p>Agência global de serviços — web, marketing, branding e viagens corporativas.</p>
+      </div>
+      <nav class="footer-nav">
+        <a href="services.html">Serviços</a>
+        <a href="work-with-us.html">Trabalhe Connosco</a>
+        <a href="privacy.html">Privacidade</a>
+        <a href="terms.html">Termos</a>
+      </nav>
+      <div class="footer-contact">
+        <a href="mailto:alexandremalungo17@gmail.com">alexandremalungo17@gmail.com</a>
+        <p>© 2025 Leano Worldwide Solutions</p>
       </div>
     </div>
+  </footer>
 
-    <div class="card">
-      <img src="images/marketing.jpg">
-      <div class="card-content">
-        <h3>Marketing & Publicidade</h3>
-        <p>Marketing digital, branding, anúncios e estratégias internacionais.</p>
-        <a class="btn" href="service-details.html?service=marketing">Solicitar Serviço</a>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="images/freelancers.jpg">
-      <div class="card-content">
-        <h3>Projetos Empresariais</h3>
-        <p>Gestão de projetos profissionais executados por especialistas.</p>
-        <a class="btn" href="service-details.html?service=projetos">Solicitar Serviço</a>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="images/hoteis.jpg">
-      <div class="card-content">
-        <h3>Reservas de Hotéis</h3>
-        <p>Reservas globais com parceiros internacionais e preços exclusivos.</p>
-        <a class="btn" href="service-details.html?service=hoteis">Solicitar Serviço</a>
-      </div>
-    </div>
-
-  </div>
-
-  <div style="text-align:center; margin-top: 30px;">
-    <a href="services.html" class="btn-primary">Ver Todos os Serviços</a>
-  </div>
-</section>
-
-<footer>
-  © 2025 Leano Worldwide Solutions — Agência Global de Serviços Profissionais
-</footer>
-
+  <script src="js/script.js"></script>
 </body>
-    </html>
+  </html>
